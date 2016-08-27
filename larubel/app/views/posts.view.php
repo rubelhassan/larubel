@@ -12,7 +12,8 @@
             <?php if($post->slug == null): ?>
                 <strike><?= $post->title; ?></strike>
             <?php else: ?>
-                <?= $post->title; ?>
+                <?= $post->title; ?> <br/>
+                <a href="#"><?= $post->slug; ?></a>
             <?php endif; ?>
         </li>
     <?php endforeach; ?>

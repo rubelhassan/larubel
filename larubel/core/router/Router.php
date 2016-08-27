@@ -16,7 +16,6 @@ namespace Larubel\Core\Router;
 
 class Router{
 
-
     // routes hold array of patterns and actions by their request type
     private $routes = [];
 
@@ -90,7 +89,7 @@ class Router{
     }
 
     /**
-     * read requested uri to the application and take action
+     * read uri requested to the application and take action
      */
     public function run(){
 

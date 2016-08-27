@@ -17,11 +17,12 @@ class Bond implements ORMInterface{
     }
 
     public static function init($db){
-        self::$db = $db;
+        if(self::$db == null)
+            self::$db = $db;
     }
 }
 
-// initialize Bond db with configurations
+// initialize Bond ORM with db configurations
 Bond::init(new Database(
     Connection::make(DB_CONFIGURATION['database'])
 ));
