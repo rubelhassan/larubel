@@ -6,8 +6,11 @@ use \Larubel\Database\Interfaces\ORMInterface as ORMInterface;
 
 class Bond implements ORMInterface{
 
-    private static $db;
+    protected static $db;
 
+    /**
+     * ORMInterface methods implementation
+     */
     public static function all($model){  
         return (self::$db)->all($model);
     }
