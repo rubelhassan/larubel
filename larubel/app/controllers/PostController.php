@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use Larubel\Database\Bond;
-use Larubel\Database\Interfaces\ORMInterface;
 
 class PostController extends Controller{
 
