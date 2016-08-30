@@ -148,8 +148,8 @@ class Router{
                     $controller = 'App\\Controllers\\' . $actions[0];
                     $action = $actions[1];
                     $action = [(new $controller), $action];
-                }
-                
+                }  
+
                 // multiple params are found call action with params
                 if( count($params) > 1){
                     return call_user_func_array($action, [$params]);

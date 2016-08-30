@@ -18,3 +18,10 @@ $router->get('/home/(\d+)', function ($no){
 
 $router->get('/posts', 'PostController@index');
 $router->get('/posts/(\d+)', 'PostController@show');
+
+// all routes related to user
+$router->get('/user/login', 'UserController@getLogin');
+$router->post('/user/login', 'UserController@postLogin');
+$router->get('/user/signup', 'UserController@getSignup');
+$router->post('/user/signup', 'UserController@create');
+$router->get('/user/profile', 'UserController@show');

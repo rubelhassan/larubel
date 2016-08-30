@@ -8,9 +8,9 @@ class Post{
 
     protected $id;
     protected $tablename = 'posts';
-    public $title;
-    public $body;
-    public $slug;
+    private $title;
+    private $body;
+    private $slug;
 
     public function getId(){
         return $this->id;
