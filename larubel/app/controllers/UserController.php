@@ -10,15 +10,27 @@ use Larubel\Libs\Services\Session;
 
 use Larubel\Core\Authentication\Auth;
 
+use Larubel\Libs\Services\Request;
+
 class UserController extends Controller{
 
     public function getLogin(){
         echo $this->view->render('/users/login');
     }
 
-    public function postLogin(){
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+    public function postLogin(Request $request){
+
+        $password = $request->get('password'); echo "</br>";
+        $email =  $request->get('email');
+
+        $this->validator->validate('alphaWithSpace|min=4|max=10', ['name' => 'rubel hassan']);
+        $this->validator->validate('email', ['email' => 'rubel@']);
+        global $errors;
+        var_dump($errors);
+        die();
+
+        // $email = $_POST['email'];
+        // $password = $_POST['password'];
 
         $user = Auth::attempt($email, $password);
 

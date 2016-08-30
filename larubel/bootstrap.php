@@ -12,3 +12,5 @@ require '../larubel/app/routes.php';
 $db = new Larubel\Database\Database(
     Larubel\Database\Connection::make(DB_CONFIGURATION['database'])
 );
+
+$errors = null;

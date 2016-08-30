@@ -16,7 +16,7 @@ class Auth{
         $user = Bond::findWhere('App\\Model\\User', [
             'email' => $email, 
             'password' => $password
-        ]);
+        ], 1);
         
         if($user){
             $user = current($user);

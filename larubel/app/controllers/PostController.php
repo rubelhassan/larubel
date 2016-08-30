@@ -15,8 +15,6 @@ class PostController extends Controller{
     public function index(){
         if(Auth::check())
             echo "user is logged in";
-        die();
-
 
         $posts = Bond::all('App\\Model\\Post');
         echo $this->view->render('posts', compact('posts'));
@@ -24,11 +22,6 @@ class PostController extends Controller{
 
     public function show($id){
         $posts = Bond::find('App\\Model\\Post' , $id);
-        if($posts instanceof Post){
-            echo "string";
-        }
-        var_dump($posts);
-        die();
         echo $this->view->render('posts', compact('posts'));
     }
 

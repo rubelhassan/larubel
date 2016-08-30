@@ -49,7 +49,14 @@ class Database{
         return $stmt->fetchAll(\PDO::FETCH_CLASS, $model);
     }
 
-    public function findWhere($model, $conditions){
+    /**
+     * find data from table based on conditions
+     * @param  String  $model       model class path
+     * @param  array   $conditions  field and values in condition
+     * @param  integer $limit       limit query
+     * @return array                array of resultant model objects
+     */
+    public function findWhere($model, $conditions, $limit = 0){
 
         if(!class_exists($model)){
              return new $model;
@@ -70,7 +77,8 @@ class Database{
             $counter++;
         }
 
-        $sql .= ' LIMIT 1';
+        if($limit > 0)
+            $sql .= ' LIMIT ' . $limit;
         
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($values);
