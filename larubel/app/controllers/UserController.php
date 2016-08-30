@@ -23,8 +23,8 @@ class UserController extends Controller{
         $password = $request->get('password'); echo "</br>";
         $email =  $request->get('email');
 
-        $this->validator->validate('alphaWithSpace|min=4|max=10', ['name' => 'rubel hassan']);
-        $this->validator->validate('email', ['email' => 'rubel@']);
+        $this->validator->validate('required', ['name' => 'a']);
+        $this->validator->validate('required|email', ['email' => 'rubelhassan@outlook.com']);
         global $errors;
         var_dump($errors);
         die();

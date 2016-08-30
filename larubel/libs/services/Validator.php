@@ -5,6 +5,7 @@ namespace Larubel\Libs\Services;
 class Validator{
 
     private $patternsType = [
+        'required'          => '/^.+$/i',
         'alpha'             => '/^[a-z]+$/i',
         'alphaWithSpace'    => '/^[a-z ]+$/i',
         'num'               => '/^(\d+)$/',
@@ -14,9 +15,10 @@ class Validator{
     ];
 
     private $messages = [
-        'alpha' => ' contains only letters',
-        'num'   => ' contains only numbers',
-        'alnum' => ' should be alpha numeric',
+        'required' => ' is required.',
+        'alpha' => ' contains only letters.',
+        'num'   => ' contains only numbers.',
+        'alnum' => ' should be alpha numeric.',
         'min'   => ' must be minimum',
         'max'   => ' must be maximum',
         'email' => ' is not valid!'
@@ -65,8 +67,7 @@ class Validator{
                 return false;
             }
         }
-
-        echo 'true';
+        
         return true;
     }
 
