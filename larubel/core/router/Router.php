@@ -135,6 +135,8 @@ class Router{
     public function handle($routes){
 
         $uri = $this->getUri();
+        
+        Request::addRedirect($this->appBasePath. ltrim($uri, '/'));
 
         foreach ($routes as $pattern => $actions) {
 

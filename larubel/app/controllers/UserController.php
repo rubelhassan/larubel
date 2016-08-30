@@ -23,14 +23,9 @@ class UserController extends Controller{
         $password = $request->get('password'); echo "</br>";
         $email =  $request->get('email');
 
-        $this->validator->validate('required', ['name' => 'a']);
+        $this->validator->validate('required', ['password' => $password]);
         $this->validator->validate('required|email', ['email' => 'rubelhassan@outlook.com']);
-        global $errors;
-        var_dump($errors);
-        die();
 
-        // $email = $_POST['email'];
-        // $password = $_POST['password'];
 
         $user = Auth::attempt($email, $password);
 

@@ -2,6 +2,8 @@
 
 namespace Larubel\Libs\Services;
 
+use Larubel\Libs\Services\Session;
+
 class Validator{
 
     private $patternsType = [
@@ -45,8 +47,8 @@ class Validator{
                 $values[0]  == 'max' ? $this->pattern = '/^[A-Za-z0-9#, .\-_]{0,' . $values[1] . '}$/' : '';
 
                 if(!preg_match($this->pattern, $data, $matches)){   
-                    $errors[$fieldName] = $fieldName . $this->messages[$values[0]] . ' ' . $values[1] . ' characters';             
-                    return false;
+                    Session::set('errors', $fieldName . $this->messages[$values[0]] . ' ' . $values[1] . ' characters');             
+                    $this->redirect(Request::getUri());
                 }
 
                 continue;
@@ -54,7 +56,8 @@ class Validator{
 
             if($value == 'email'){
                 if(!$this->validateEmail($data)){
-                    $errors[$fieldName] = $fieldName . $this->messages[$value];
+                    Session::set('errors', $fieldName . $this->messages[$value]);
+                    $this->redirect(Request::getUri());
                 }
 
                 continue;
@@ -63,8 +66,8 @@ class Validator{
             $this->pattern = $this->patternsType[$value];
 
             if(!preg_match($this->pattern, $data, $matches)){
-                $errors[$fieldName] = $fieldName . $this->messages[$value]; 
-                return false;
+                Session::set('errors', $fieldName . $this->messages[$value]); 
+                $this->redirect(Request::getUri());
             }
         }
         
@@ -74,6 +77,12 @@ class Validator{
 
     private function validateEmail($email) {
       return filter_var($email, FILTER_VALIDATE_EMAIL);
+    }
+
+    private function redirect($url){
+        session_write_close();
+        header('Location: ' . $url);
+        die();
     }
 
 }

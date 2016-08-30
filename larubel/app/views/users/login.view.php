@@ -6,6 +6,9 @@
 </head>
 <body>
     <form action="login" method="post">
+        <?php 
+            echo $errors . '<br>';
+         ?>
         email:<input type="email" name="email" ><br>
         password:<input type="password" name="password" ><br>
         <input type="submit" value="Submit">

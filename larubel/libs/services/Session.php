@@ -24,7 +24,7 @@ class Session{
 
     public static function start(){
 
-        @session_start();
+        session_start(); 
 
         if(!isset($_SESSION['created']))
             $_SESSION['created'] = time();

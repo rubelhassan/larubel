@@ -13,4 +13,4 @@ $db = new Larubel\Database\Database(
     Larubel\Database\Connection::make(DB_CONFIGURATION['database'])
 );
 
-$errors = null;
+$errors = Larubel\Libs\Services\Session::get('errors');

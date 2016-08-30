@@ -43,6 +43,7 @@ class View{
     public function render($view, $data=[]){
         ob_start();
         extract($data);
+        global $errors;
         include $this->loader->fetch($view);
         return ob_get_clean();
     }

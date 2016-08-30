@@ -8,6 +8,8 @@ class Request{
 
     private $files;
 
+    private static $uri;
+
     public function __construct(){
         $this->postParams = $_POST ? $_POST : [];
         $this->file = $_FILES ? $_FILES : [] ;
@@ -27,5 +29,13 @@ class Request{
         }
 
         return null;
+    }
+
+    public static function addRedirect($uri){
+        self::$uri = $uri;
+    }
+
+    public static function getUri(){
+        return self::$uri;
     }
 }
