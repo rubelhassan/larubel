@@ -1,14 +1,14 @@
-# Sustainable Tourism Information Management Application
+## Larubel Framework
 
-This application focuses on tourism information development in Bangladesh.
+Larubel is a custom mvc framework developed with intend to learn insights of a framework and this is 
+very suitable for creating small-scale web applications in PHP.
 
-##Developers:
-  - [Rubel Hassan](https://github.com/rubelhassan)(Development)
-  - [Afikur Rahman](https://github.com/afikur)(Design)
+Features:
 
-##Frameworks:
-  - [Larubel](https://github.com/rubelhassan/larubel) - A custom php framework
-  - [Lassi](https://github.com/afikur/lassi-framework) - A custom fron-end web framework
-  
-Copyright - 2016 Afikur & Rubel
+- Routing
+- Request
+- Respons
+- Database
+
+And everything is developed from scratch and lot more to add in future.
  
