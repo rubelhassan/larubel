@@ -86,6 +86,37 @@ class Database{
         return $stmt->fetchAll(\PDO::FETCH_CLASS, $model);
     }
 
+    public function create($model, $data){
+         if(!class_exists($model)){
+             return new $model;
+        }
+
+        $table = $this->getTableName($model); 
+
+        $sql = 'INSERT into ' . $table . '(';
+
+        foreach ($data as $key => $value) {
+            $sql .= $key . ',';
+        }
+
+        $sql = rtrim($sql, ",");
+
+        $sql .= ') values( ';
+        $values = [];
+        foreach ($data as $key => $value) {
+            $values[] = $value;
+            $sql .= '? ,';
+        }
+
+        $sql = rtrim($sql, ",");
+
+        $sql .= ') ';
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($values);
+
+    }
+
     /**
      * find out tablename using model class 
      * @param string $model model class name with namespace

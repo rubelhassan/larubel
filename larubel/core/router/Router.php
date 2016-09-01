@@ -14,6 +14,8 @@
 
 namespace Larubel\Core\Router;
 
+use Larubel\Libs\Services\Response;
+
 use Larubel\Libs\Services\Request;
 
 class Router{
@@ -29,6 +31,10 @@ class Router{
     
     // the application base path
     private $appBasePath;
+
+    private $response;
+
+    private $request;
 
 
     public function __construct(){
@@ -136,7 +142,8 @@ class Router{
 
         $uri = $this->getUri();
         
-        Request::addRedirect($this->appBasePath. ltrim($uri, '/'));
+        Response::addValidationRedirect($this->appBasePath. ltrim($uri, '/'));
+        Response::setBaseUri($this->appBasePath);
 
         foreach ($routes as $pattern => $actions) {
 

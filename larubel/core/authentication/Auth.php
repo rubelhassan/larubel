@@ -37,4 +37,8 @@ class Auth{
 
         return false;
     }
+
+    public function logout(){
+        Session::delete('user');
+    }
 }

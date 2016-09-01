@@ -1,0 +1,118 @@
+body {
+	font-size: 16px;
+	font-family: Arial, sans-serif;
+}
+
+h1 {
+	font-size: 3.157em;
+}
+h2 {
+	font-size: 2.369em;
+}
+
+h3 {
+	font-size: 1.777em;
+}
+
+h4 {
+	font-size: 1.333em;
+}
+
+h5 {
+	font-size: 1em;
+}
+
+h6 {
+	font-size: 0.75em;
+}
+
+.login-registration {
+	margin-top: 45px;
+	text-align: right;
+}
+.logo {
+	display: block;
+	padding: 8px 0;
+}
+
+@media (max-width: 768px) {
+	.logo {
+		text-align: center;
+	}
+	.logo img {
+		width: 50%;
+	}
+
+	.login-registration {
+		text-align: center;
+		margin: 5px 0;
+	}
+}
+
+.main-slider object{
+	width: 100%;
+	height: 450px;
+}
+
+.section-content object {
+	width: 100%;
+	height: 250px;
+}
+
+.section-content h4 {
+	margin-bottom: 24px;
+}
+
+.section-content a{
+	text-decoration: none;
+	color: #006064;
+}
+
+.section-content a:hover {
+	border-bottom: 1px solid #006064;
+}
+.footer-top {
+	margin-top: 48px;
+	background-color: #454545;
+	color: #fff;
+	padding: 24px 0;
+}
+.footer-top h4 {
+	margin-bottom: 1em;
+	border-bottom: 1px solid #ddd;
+}
+
+.footer-top a {
+	color: #fff;
+	text-decoration: none;
+}
+footer{
+	background-color: #222;
+	color: #fff;
+	padding: 15px 0;
+	text-align: center;
+}
+
+/* Login page */
+/*------------------------------------------------------------------------- */
+
+.login-section, .registration-section {
+	margin-top: 6em;
+	margin-bottom: 6em;
+}
+
+
+/* Single page */
+/*------------------------------------------------------------------------- */
+
+.reviwer {
+	text-align: center;
+	border: 1px solid #ddd;
+	padding: 15px;
+	margin-bottom: 15px;
+}
+
+.form-group span {
+	color: #ff0000;
+}
+

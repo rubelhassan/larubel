@@ -7,7 +7,7 @@ class User{
     private $id;
     protected $tablename = 'users';
     private $name;
-    public $email;
+    private $email;
 
     public function id(){
         return $this->id;
@@ -19,9 +19,5 @@ class User{
 
     public function email(){
         return $this->email;
-    }
-
-    public function hello(){
-        return 'hello';
     }
 }

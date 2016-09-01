@@ -6,15 +6,16 @@ class Session{
 
     public static function set($name, $data){
         $_SESSION[$name] = $data;
-        $_SESSION['created'] = time();
+        $_SESSION['activity'] = time();
     }   
 
     public static function get($name){
-        if((time() - $_SESSION['created']) > 1800){
-            session_unset();
-            session_destroy();
-            return null;
-        }
+        if(isset($_SESSION['activity']))
+            if( (time() - $_SESSION['activity']) > 1800){
+                session_unset();
+                session_destroy();
+                return null;
+            }
 
         if(isset($_SESSION[$name]))
             return $_SESSION[$name];
@@ -24,10 +25,10 @@ class Session{
 
     public static function start(){
 
-        session_start(); 
+        @session_start(); 
 
-        if(!isset($_SESSION['created']))
-            $_SESSION['created'] = time();
+        if(!isset($_SESSION['activity']))
+            $_SESSION['activity'] = time();
     }  
 
     public static function delete($name){
